@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recepie } from '../recepie.model';
 import { RecepieService } from '../recepie.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-recepie-list',
@@ -22,10 +24,18 @@ export class RecepieListComponent implements OnInit {
   recepies:Recepie[];
 
 
-  constructor(private recepieService:RecepieService) { }
+  constructor(private recepieService:RecepieService,
+              private router:Router,
+              private route:ActivatedRoute) { }
 
   ngOnInit(){
      this.recepies= this.recepieService.getRecepie();
+  }
+
+  onNewRecepie(){
+    this.router.navigate(['new'], {relativeTo:this.route});
+
+
   }
 
   // onRecepieSelected(recepie:Recepie){

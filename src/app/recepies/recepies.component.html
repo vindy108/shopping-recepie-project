@@ -3,9 +3,10 @@
         <app-recepie-list></app-recepie-list>
     </div>
     <div class="col-md-7">
-        <app-recepie-detail
+        <!-- <app-recepie-detail
         *ngIf="selectRecepie ; else infoText"
         [recepie]="selectRecepie"></app-recepie-detail>
-        <ng-template #infoText>Please select a recepie</ng-template>
+        <app-recepie-start></app-recepie-start> -->
+        <router-outlet></router-outlet>
     </div>
 </div>

@@ -10,15 +10,15 @@ import { RecepieService } from './recepie.service';
 })
 export class RecepiesComponent implements OnInit {
 
-  selectRecepie:Recepie;
-  constructor(private recepieService:RecepieService) { }
+  // selectRecepie:Recepie;
+  // constructor(private recepieService:RecepieService) { }
 
   ngOnInit(): void {
-    this.recepieService.recepieSelected.subscribe(
-      (recepie:Recepie) => {
-        this.selectRecepie = recepie;
-      }
-    )
+    // this.recepieService.recepieSelected.subscribe(
+    //   (recepie:Recepie) => {
+    //     this.selectRecepie = recepie;
+    //   }
+    // )
 
   }
 

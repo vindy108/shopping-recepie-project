@@ -12,6 +12,8 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppinglistService } from './shopping-list/shopping-list.service';
+import { RecepieStartComponent } from './recepies/recepie-start/recepie-start.component';
+import { RecepieEditComponent } from './recepies/recepie-edit/recepie-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ShoppinglistService } from './shopping-list/shopping-list.service';
     RecepieItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    RecepieStartComponent,
+    RecepieEditComponent
   ],
   imports: [
     BrowserModule,

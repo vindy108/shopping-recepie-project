@@ -1,9 +1,11 @@
-<app-header (featureRecepie)="onNavigate($event)"></app-header>
+<!-- <app-header (featureRecepie)="onNavigate($event)"></app-header> -->
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recepies *ngIf="loadedfeature === 'recepie'"></app-recepies>
-      <app-shopping-list *ngIf="loadedfeature !== 'recepie'"></app-shopping-list>
+      <!-- <app-recepies *ngIf="loadedfeature === 'recepie'"></app-recepies>
+      <app-shopping-list *ngIf="loadedfeature !== 'recepie'"></app-shopping-list> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

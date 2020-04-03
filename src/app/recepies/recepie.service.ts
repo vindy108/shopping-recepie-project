@@ -2,11 +2,12 @@ import { Recepie } from './recepie.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppinglistService } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class RecepieService{
 
-    recepieSelected = new EventEmitter<Recepie>();
+    recepieSelected = new Subject<Recepie>();
 
     constructor(private slService:ShoppinglistService){}
 
@@ -31,6 +32,10 @@ export class RecepieService{
 
       getRecepie(){
           return this.recepies.slice();
+      }
+
+      getRecepieId(id:number){
+        return this.recepies[id];
       }
 
       addRecepieToShoppinglist(ingredients:Ingredient[]){
