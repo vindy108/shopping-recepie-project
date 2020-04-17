@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecepieService{
 
-    recepieSelected = new Subject<Recepie>();
+    recepieChanged = new Subject<Recepie[]>();
 
     constructor(private slService:ShoppinglistService){}
 
@@ -15,7 +15,7 @@ export class RecepieService{
         new Recepie(
           'Chicken Masala',
           'Chicken',
-          'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/indian.jpg',
+          'https://www.seriouseats.com/recipes/images/2013/01/20130114-237007-mapo-chicken-primary.jpg',
           [ new Ingredient('Chicken',1),
             new Ingredient('Masala',50)
           ]
@@ -23,7 +23,7 @@ export class RecepieService{
         new Recepie(
           'Prawn Fry',
           'Prawn',
-          'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/indian.jpg',
+          'https://vaya.in/recipes/wp-content/uploads/2018/06/Andhra-Prawn-Fry.jpg',
           [ new Ingredient('prawn',10),
             new Ingredient('Masala',50)
           ]
@@ -40,6 +40,21 @@ export class RecepieService{
 
       addRecepieToShoppinglist(ingredients:Ingredient[]){
           this.slService.addIngredients(ingredients);
+      }
+
+      addRecepie(recepie:Recepie){
+        this.recepies.push(recepie);
+        this.recepieChanged.next(this.recepies.slice());
+      }
+
+      updateRecepie(index:number, newRecepie:Recepie){
+          this.recepies[index] = newRecepie;
+          this.recepieChanged.next(this.recepies.slice());
+      }
+
+      deleteRecepie(index:number){
+        this.recepies.splice(index);
+        this.recepieChanged.next(this.recepies.slice());
       }
 
 }
